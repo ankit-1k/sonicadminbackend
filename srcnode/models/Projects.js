@@ -14,10 +14,10 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    code: {
-        type: String,
-        required: true
-    },
+    // code: {
+    //     type: String,
+    //     required: true
+    // },
     imgLink: {
         type: String,
         required: true
