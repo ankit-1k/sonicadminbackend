@@ -7,6 +7,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 require('dotenv').config(); 
+const corsOptions = {
+    origin: 'https://sonicadmin.vercel.app', // Allow requests from this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+    credentials: true // Allow credentials
+};
+app.use(cors(corsOptions));
 // Connect to DB
 connectDB();
 
