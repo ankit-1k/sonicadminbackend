@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const url = 'mongodb+srv://sonicdev:F_*E5Ja98i$$2q3@cluster0.r5nc91a.mongodb.net/sonicadmin';
+        // const url = 'mongodb+srv://sonicdev:F_*E5Ja98i$$2q3@cluster0.r5nc91a.mongodb.net/sonicadmin';
+        const url = process.env.MONGODB_URI;
         await mongoose.connect(url);
         console.log('Atlas DB Connected');
     } catch (error) {
