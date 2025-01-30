@@ -4,7 +4,7 @@ const reqrouter=express.Router()
 
 reqrouter.use(express.json())
 
-reqrouter.post('/reqpost',async(req,res)=>{
+reqrouter.post('/reqpost',async(req,res)=>{ 
     try {
         const newReq=new ReqModel(req.body)
         await newReq.save()

@@ -9,6 +9,9 @@ const reqSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    from:{
+        type:String,
+    },
     message:{
         type:String,
         required:true
