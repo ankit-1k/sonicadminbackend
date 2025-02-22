@@ -19,6 +19,7 @@ const headerrouter = require("./srcnode/routers/header/header");
 const homerouter = require("./srcnode/routers/home/home");
 const reqrouter = require("./srcnode/routers/more/request");
 const taskRouter = require("./srcnode/routers/task/task");
+const collectdatarouter = require("./srcnode/routers/collectdata/collectdata");
 const app = express();
 
 // const getAllowedOrigins = async () => {
@@ -78,6 +79,7 @@ app.use("/api", headerrouter);
 app.use("/api", homerouter);
 app.use("/api", reqrouter);
 app.use("/api", taskRouter);
+app.use("/api", collectdatarouter);
 
 const PORT = 4300;
 app.listen(PORT, () => {
