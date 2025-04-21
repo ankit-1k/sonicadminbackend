@@ -43,7 +43,7 @@ authRouter.post('/login', async (req, res) => {
             searchUser.lastLogin = new Date();
             await searchUser.save(); 
 
-            const token = jwt.sign({ id: searchUser._id }, SECRET_KEY, { expiresIn: '5h' });
+            const token = jwt.sign({ id: searchUser._id }, SECRET_KEY, { expiresIn: '200h' });
             res.status(200).send({
                 message: 'Login success',
                 token,
