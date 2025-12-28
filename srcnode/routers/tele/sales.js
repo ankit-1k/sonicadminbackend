@@ -13,7 +13,6 @@ salesrouter.post('/postsales', async (req, res) => {
         await newUser.save()
         res.status(200).send({ message: 'Success' })
     } catch (error) {
-        console.error('❌ ERROR:', err.message );
         res.status(500).send({ message: 'ISE POST' })
     }
 })

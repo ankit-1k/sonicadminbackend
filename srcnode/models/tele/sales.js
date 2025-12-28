@@ -13,12 +13,6 @@ const salesSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    accNo:{
-        type:String,
-        required:false,
-        default: '0',
-        set: v => v == null || v === '' ? '0' : String(v)
-    },
     coName:{
         type:String,
         required:true
