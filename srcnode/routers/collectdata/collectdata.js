@@ -65,13 +65,13 @@ collectdatarouter.post('/send-email-c', async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'expnode1@gmail.com',
-            pass: 'fsiw zucv crwl kwej'
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
         }
     });
 
     const mailOptions = {
-        from: 'expnode1@gmail.com',
+        from: process.env.EMAIL_USER,
         to,
         subject,
         html: `<div style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);">
@@ -101,8 +101,8 @@ collectdatarouter.post('/send-mails', async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'expnode1@gmail.com',
-                pass: 'fsiw zucv crwl kwej'
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
         // Fetch all emails for the selected orgType
@@ -116,7 +116,7 @@ collectdatarouter.post('/send-mails', async (req, res) => {
 
         // Email Options
         const mailOptions = {
-            from: 'expnode1@gmail.com',
+            from: process.env.EMAIL_USER,
             to: recipientEmails.join(','),
             subject: subject,
             html: `<div style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);">
