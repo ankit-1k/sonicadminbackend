@@ -3,17 +3,20 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const headerrouter = express.Router();
 const jwt = require('jsonwebtoken');
-
+console.log("ENV CHECK → EMAIL_USER:", process.env.EMAIL_USER);
+console.log("ENV CHECK → EMAIL_PASS exists:", !!process.env.EMAIL_PASS);
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'expnode1@gmail.com',
-        pass: 'fsiw zucv crwl kwej'
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
 });
 
 const otps = new Map();
-const JWT_SECRET = 'your_jwt_secret'; 
+const JWT_SECRET = process.env.JWT_SECRET;
 
 headerrouter.post('/send-otp', async (req, res) => {
     const { email } = req.body;
@@ -22,7 +25,7 @@ headerrouter.post('/send-otp', async (req, res) => {
 
     const mailOptions = {
         from: 'expnode1@gmail.com',
-        to: 'expnode1@gmail.com', 
+        to: email, 
         subject: 'Super Admin Verification',
         text: `Your OTP is ${otp}`
     };

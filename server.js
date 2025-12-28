@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -22,33 +23,6 @@ const taskRouter = require("./srcnode/routers/task/task");
 const collectdatarouter = require("./srcnode/routers/collectdata/collectdata");
 const routerphone = require("./srcnode/routers/mailer/phonemailer");
 const app = express();
-
-// const getAllowedOrigins = async () => {
-//     try {
-//         // Fetch websites where access is true
-//         const websites = await WebsiteModel.find({ access: true });
-//         return websites.map(website => website.sitename);
-//     } catch (error) {
-//         console.error('Error fetching websites:', error);
-//         return [];
-//     }
-// };
-
-// // Use CORS middleware
-// app.use(async (req, res, next) => {
-//     const allowedOrigins = await getAllowedOrigins();
-//     cors({
-//         origin: (origin, callback) => {
-//             if (!origin || allowedOrigins.includes(origin)) {
-//                 callback(null, true); // Allow the request
-//             } else {
-//                 callback(new Error('Not allowed by CORS')); // Reject the request
-//             }
-//         },
-//         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-//         credentials: true, // Include credentials if needed (cookies, authorization headers)
-//     })(req, res, next);
-// });
 
 app.use(
   cors({
